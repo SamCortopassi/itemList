@@ -26,5 +26,5 @@ class ItemsVC: UITableViewController {
         
         return cell
     }
-    
 }
+
