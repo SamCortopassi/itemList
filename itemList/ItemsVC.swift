@@ -12,6 +12,34 @@ class ItemsVC: UITableViewController {
     
     var itemStore: ItemStore!
     
+    @IBAction func addNewItem(_ sender: UIButton) {
+//        create & add new item to store
+        let newItem = itemStore.createItem()
+        
+//          where is it in array
+        if let index = itemStore.allItems.index(of: newItem) {
+            let indexPath = IndexPath(row: index, section: 0)
+            
+//              insert new row to table
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    @IBAction func toggleEditingMode(_ sender: UIButton) {
+//        if in editing mode
+        if isEditing{
+            sender.setTitle("Edit", for: .normal)
+//            turn off editing mode
+            setEditing(false, animated: true)
+        } else {
+//            change button txt edit->done
+            sender.setTitle("Done", for: .normal)
+//            enter deiting mode
+            setEditing(true, animated: true)
+        }
+    
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +51,8 @@ class ItemsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
         return itemStore.allItems.count
     }
     
@@ -39,6 +69,18 @@ class ItemsVC: UITableViewController {
         return cell
     }
     
-   
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+//          if table view is asking to commit a delete command
+        if editingStyle == .delete {
+            let item = itemStore.allItems[indexPath.row]
+//            remove from store
+            itemStore.removeItem(item)
+            
+//            remove row from table
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
 
