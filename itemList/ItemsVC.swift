@@ -83,7 +83,7 @@ class ItemsVC: UITableViewController {
     }
 //    update store
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//    updatemodel
+//    update model
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
 }
