@@ -51,7 +51,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" id="S4I-wA-cMF" customClass="ItemCell" customModule="itemList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="S4I-wA-cMF" customClass="ItemCell" customModule="itemList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S4I-wA-cMF" id="EGK-9j-bnn">
@@ -86,6 +86,11 @@
                                         <constraint firstItem="MdY-QP-luX" firstAttribute="centerY" secondItem="EGK-9j-bnn" secondAttribute="centerY" id="yR2-GP-sje"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="InS-mY-Sn4" id="yHS-9y-hA5"/>
+                                    <outlet property="serialNumberLabel" destination="x06-oa-EFW" id="wFU-l3-Z2w"/>
+                                    <outlet property="valueLabel" destination="MdY-QP-luX" id="lCE-sa-2Xq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
